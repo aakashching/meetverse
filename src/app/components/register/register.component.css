@@ -1,0 +1,139 @@
+.root {
+    width: 100%;
+    height: 100%;
+    padding: 3rem 1.5rem 1.5rem;
+    background-color: black;
+    color: #fff;
+  }
+  .form {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  .input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    min-height: 2.5rem;
+    background-color: #333;
+    border: dashed 1px var(--color);
+    border-radius: 0.6rem;
+    padding: 0.3rem;
+    overflow: hidden;
+    transition: all 0.2s linear;
+    margin: 0.6rem 0;
+  }
+  input {
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    background-color: inherit;
+    color: var(--color);
+  }
+  input::placeholder {
+    font-weight: bold;
+    padding-left: 0.5rem;
+  }
+  label{
+      padding-left: 1rem;
+      /* margin: 0.5rem; */
+      color: var(--color);  
+  }
+  .input:focus-within {
+   border-style: groove;
+  }
+  .input:focus-within input::placeholder {
+    color: var(--color);
+  }
+  .btn {
+    outline: none;
+    background-color: inherit;
+    color: var(--btn-color);
+    padding: 0.5rem 1.5rem;
+    /* border: dashed 1px var(--btn-color);
+    border-radius: 20rem; */
+    margin: 0 5px;
+    font-size: 1rem;
+    transition: all 0.2s linear;
+  }
+  .btn:hover {
+    background-color: var(--hover);
+    border-style: groove;
+  }
+  
+  .grid-container {
+    margin: 2rem auto;
+    /* display: grid; */
+    display: flex;
+    width: 100%;
+    /* grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); */
+    /* gap: 2rem; */
+    flex-wrap: wrap;
+  }
+  .grid-container > .item{
+    min-width: 20rem;
+    max-width: auto;
+    flex: 3;
+  }
+  .grid-container > div{
+    flex: 1;
+    margin: 0.5rem;
+  }
+  
+  .card {
+    border: groove 1px var(--color);
+    box-shadow: 0.5rem 0.5rem 10px var(--color);
+    border-radius: 20px;
+    padding: 1.5rem;
+    width: auto;
+    transition: all 0.4s ease;
+  }
+  /* .card:hover {
+    box-shadow: 1rem 1rem 10px var(--color);
+  } */
+  .box{
+      border-radius: 0.5rem;
+    box-shadow: 5px 5px 30px  rgb(136, 170, 221),-5px -5px 30px rgb(136, 170, 221);
+    backdrop-filter: blur(8px);
+    padding: 2rem 1.5rem;
+    /* border: 2px solid #fff; */
+    height: max-content;
+    z-index: 50;
+  }
+  
+  .backdrop{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    backdrop-filter: blur(5px);
+    z-index: 40;
+    
+  }
+  .backdrop-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 5rem;
+    z-index: 35;
+  }
+  @media screen and (max-width: 767px) {
+    .box{
+      /* top: 10rem; */
+    }
+    .backdrop-container{
+      padding: 0 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+  }
