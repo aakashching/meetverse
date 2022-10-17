@@ -1,0 +1,92 @@
+<div class="root">
+  <div class="grid-container">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <h1 class="header">
+            Join Anonymously<br />
+            or Create Account.
+          </h1>
+          <div class="row mt-5 mb-5">
+            <div
+              style="--color: rgb(136, 238, 221)"
+              class="input item col-md-8 col-xs-6"
+            >
+              <input
+                placeholder="Enter meeting code here!"
+                style="--color: rgb(136, 238, 221)"
+                type="text"
+                #meet
+              />
+              <button
+                style="
+                  --btn-color: rgb(136, 238, 221);
+                  --hover: rgb(136, 238, 221, 0.4);
+                "
+                class="join"
+                (click)="joinFn(meet)"
+              >
+                Join
+              </button>
+            </div>
+            <div
+              style="display: flex; align-items: center; justify-content: left"
+              class="col-md-4 col-xs-6"
+            >
+              <button
+                style="
+                  --btn-color: rgb(136, 170, 221);
+                  --hover: rgb(136, 170, 221, 0.4);
+                "
+                class="btn"
+                (click)="createFn(meet)"
+              >
+                Create
+              </button>
+            </div>
+          </div>
+          <p class="header">
+            <strong style="cursor: pointer">Create</strong> link for future uses
+          </p>
+        </div>
+        <div class="col-md-4">
+          <router-outlet></router-outlet>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  <h1 style="color: rgb(136, 238, 221); text-align: center">
+    Get the most out of your meetings
+  </h1>
+  <div class="grid-container">
+    <div class="card-l item" style="--color: rgba(136, 170, 221, 0.3)">
+      <span style="width: 75%; align-self: flex-start">
+        <ul class="f-list">
+          <li>End – to – End encryption</li>
+          <li>Anonymous access available</li>
+          <li>HD audio & video quality</li>
+          <li>No data is Recorded</li>
+          <li>Latency free platform</li>
+          <li>Premium features at free of cost </li>
+          <li>Unlimited free meeting access upto 16 participants</li>
+        </ul>
+      </span>
+    </div>
+    <div class="card-r item" style="--color: rgba(136, 238, 221, 0.3)">
+      <span style="width: 75%; align-self: flex-end">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </span>
+    </div>
+  </div>
+  <div class="footer">
+    <!-- <h4 style="text-align: center">Meetvers pvt. ltd.</h4> -->
+    <h6 style="text-align: center">Made with ❤ by Angular</h6>
+  </div>
+</div>

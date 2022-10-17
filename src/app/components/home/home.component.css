@@ -1,0 +1,211 @@
+.root {
+  width: 100%;
+  height: 100%;
+  padding: 4rem 1.5rem 1.5rem;
+  background-color: black;
+  color: #fff;
+  background-image: url("../../../assets/images/bg.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.form {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 1rem;
+}
+.input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 10rem;
+  max-width: 25rem;
+  max-height: 3.5rem;
+  background-color: #333;
+  border: dashed 1px var(--color);
+  border-radius: 30rem;
+  padding: 0.3rem;
+  overflow: hidden;
+  transition: all 0.2s linear;
+}
+input {
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding: 0 0.7rem;
+  background-color: inherit;
+  color: var(--color);
+}
+input::placeholder {
+  font-weight: bold;
+}
+.input:focus-within {
+  border-style: groove;
+}
+.input:focus-within input::placeholder {
+  color: var(--color);
+}
+.input .btn {
+  margin: auto;
+}
+.btn {
+  outline: none;
+  background-color: inherit;
+  color: var(--btn-color);
+  padding: 0.5rem 1.5rem;
+  border: dashed 1px var(--btn-color);
+  border-radius: 20rem;
+  margin: 0 1rem;
+  font-size: 1rem;
+  transition: all 0.2s linear;
+}
+.join {
+  outline: none;
+  background-color: inherit;
+  color: var(--btn-color);
+  padding: 0.5rem 1.5rem;
+  border: dashed 1px var(--btn-color);
+  border-radius: 20rem;
+  margin: auto;
+  font-size: 1rem;
+  transition: all 0.2s linear;
+}
+.header {
+  padding-left: 0.5rem;
+  margin: 5px;
+}
+.f-list > li{
+  transition: all linear 100ms;
+
+}
+.f-list > li:hover{
+  transform: scale(1.12)translateX(5px);
+  text-shadow: 2px 2px #333;
+}
+@media screen and (max-width: 767px) {
+  .btn {
+    margin: 1rem auto 0;
+    min-width: 10rem;
+    max-width: 25rem;
+    width: 100%;
+  }
+  /* .row>*{
+    padding-left: 0;
+    padding-right: 0;
+  } */
+  .header {
+    padding-left: 0;
+    margin: auto;
+    text-align: center;
+  }
+  .input {
+    margin: auto;
+    /* max-width: auto;
+    width: 100%; */
+  }
+  /* .mobile{
+    position: absolute;
+    top: 10rem;
+    left: 1rem;
+    right: 1rem;
+  } */
+  /* .card-r, .card-l{
+    width:100%;
+  } */
+}
+.btn:hover {
+  background-color: var(--hover);
+  border-style: groove;
+}
+
+.grid-container {
+  margin: 2rem auto;
+  /* display: grid; */
+  display: flex;
+  width: 100%;
+  /* grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); */
+  /* gap: 2rem; */
+  flex-wrap: wrap;
+}
+.grid-container > .item {
+  min-width: 20rem;
+  max-width: auto;
+  flex: 3;
+}
+.grid-container > div {
+  flex: 1;
+  margin: 0.5rem;
+}
+ul li {
+  background: url("../../../assets/bullet.svg");
+  list-style-type: none;
+  list-style-position: inside;
+  background-repeat: no-repeat;
+  background-size: 30px;
+  padding-left: 30px;
+  padding-top: 2px;
+}
+ul{
+padding: 0;
+}
+.card-l {
+  /* border: groove 1px var(--color); */
+  /* box-shadow: 0.5rem 0.5rem 10px var(--color); */
+  /* border-radius: 20px; */
+  padding: 1.5rem;
+  width: 50%;
+  transition: all 0.4s ease;
+  z-index: 1;
+  background-color: var(--color);
+  color: #bbb;
+  backdrop-filter: blur(4px);
+  /* filter: drop-shadow(0.5rem 0.5rem 10px var(--color)); */
+  position: relative;
+  -webkit-clip-path: polygon(70% 0, 100% 50%, 70% 100%, 0 100%, 0 0);
+  clip-path: polygon(70% 0, 100% 50%, 70% 100%, 0 100%, 0 0);
+  display: flex;
+  flex-direction: row;
+}
+.card-r {
+  /* border: groove 1px var(--color); */
+  /* box-shadow: 0.5rem 0.5rem 10px var(--color); */
+  /* border-radius: 20px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  width: 50%;
+  transition: all 0.4s ease;
+  z-index: 1;
+  background-color: var(--color);
+  color: #bbb;
+  backdrop-filter: blur(4px);
+
+  /* filter: drop-shadow(0.5rem 0.5rem 10px var(--color)); */
+  position: relative;
+  -webkit-clip-path: polygon(30% 0, 100% 0, 100% 100%, 30% 100%, 0 50%);
+  clip-path: polygon(30% 0, 100% 0, 100% 100%, 30% 100%, 0 50%);
+}
+.card-s:hover {
+  box-shadow: 1rem 1rem 10px var(--color);
+}
+/* .bottom{
+  clip-path: polygon(25% 0, 75% 0, 100% 25%, 100% 100%, 0 100%, 0 25%);
+  background-color: palegreen;
+  width: fit-content;
+  height: 10rem;
+} */
+
+.footer {
+  min-height: 8rem;
+  background-color: rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(5px);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

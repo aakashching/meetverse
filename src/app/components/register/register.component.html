@@ -1,0 +1,54 @@
+
+<div class="backdrop-container">
+    <div routerLink="/" class="backdrop">
+    
+    </div>
+
+    <div class="card box" style="background-color: inherit;">
+        <h2>Register here!</h2>
+        <form (ngSubmit)="registerUser()" #reg="ngForm">
+            <div class="form-group">
+                <input style="--color:rgb(136, 238, 221);" class="input" placeholder="First Name" type="text" name="firstName" ngModel />
+            </div>
+            <div class="form-group">
+                <input style="--color:rgb(136, 238, 221);" class="input" placeholder="Last Name" type="text" name="lastName" ngModel />
+            </div>
+            <div class="form-group">
+                <input style="--color:rgb(136, 238, 221);" class="input" placeholder="Username" type="text" name="username" ngModel />
+            </div>
+            <div class="form-group">
+                <input style="--color:rgb(136, 238, 221);" class="input" placeholder="Email" type="email" name="email" ngModel />
+            </div>
+            
+            <div class="form-group">
+                <input style="--color:rgb(136, 238, 221);" class="input" placeholder="Password" type="password" name="password" ngModel />
+            </div>
+            <div class="form-group">
+                <input style="--color:rgb(136, 238, 221);" class="input" placeholder="Confirm Password" type="password" name="confirmPass" ngModel />
+            </div>
+
+            <!-- validation messages -->
+            <div *ngIf="reg.controls.firstName.touched && reg.controls.firstName.value.trim().length==0" class="alert" style="--color:red;">please enter your first name</div>
+            <div *ngIf="reg.controls.lastName.touched && reg.controls.lastName.value.trim().length==0" class="alert"  style="--color:red;"> please enter your last name</div>
+            <div *ngIf="reg.controls.username.touched && reg.controls.username.value.trim().length<3" class="alert"  style="--color:red;">username must be atleat 3 characters</div>
+            <div *ngIf="reg.controls.password.touched && reg.controls.password.value.trim().length<8" class="alert"  style="--color:red;"> passwor must be atleast eight charaters</div>
+            <div class="d-flex align-item-center" style="width: 100%;">
+                <button type="submit" style="
+                          --btn-color: rgb(136, 170, 221);
+                          --hover: rgb(136, 170, 221, 0.4);
+                        " class="btn">
+                    Register
+                </button>
+                <div style="display: inline-block; height: 1rem; width: 0.5px; background-color: #fff;align-self: center;">
+                </div>
+                <button type="button" routerLink="/login"
+                    style="--btn-color:rgb(136, 238, 221);--hover:rgb(136, 238, 221,0.6)" class="btn">Login</button>
+                <div style="display: inline-block; height: 1rem; width: 0.5px; background-color: #fff;align-self: center;">
+                </div>
+                <button type="button" style="--btn-color:rgb(136, 238, 221);--hover:rgb(136, 238, 221,0.6)" class="btn">Need
+                    help!</button>
+            </div>
+    
+        </form>
+    </div>
+</div>

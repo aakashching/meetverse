@@ -1,0 +1,34 @@
+<div class="root d-flex">
+    <div class="media-container">
+        <!-- <div style="align-self: center;justify-content: center;align-items: center; width: 100%;height: 100%;" class="row" id="videos">
+           
+        </div> -->
+        <div style="align-self: center;justify-content: center;align-items: center; width: 100%;height: 100%;" class="vid-grid" id="videos">
+           
+        </div>
+        <div *ngIf="showChat" style="position: absolute; width: auto;right: 5px; bottom: 5rem;">
+            <app-message></app-message>
+        </div>
+        <div class="controls">
+            <span (click)="toggleMuteBtn()" title="mute/unmute" class="icon-btn"><i
+                    [ngClass]="streamCfg.audio.enabled?'bi-mic':'bi-mic-mute'" class="bi"></i></span>
+            <span (click)="toggleVideoBtn()" title="video on/off" class="icon-btn"><i
+                    [ngClass]="streamCfg.video.enabled?'bi-camera-video-fill':'bi-camera-video-off-fill'"
+                    class="bi"></i></span>
+            <span class="icon-btn" (click)="shareMediaBtn()" title="screen share"><i class="bi bi-cast"></i></span>
+            <span class="icon-btn" style="color: red; text-shadow: 2px 2px 15px red,-2px -2px 15px red" title="leave meeting" (click)="leaveMeeting()"><i class="bi bi-box-arrow-right"></i></span>
+
+
+        </div>
+        <div class="controls" style="align-self: flex-end; margin-inline: 0.5rem;">
+
+            <span (click)="toggleShowChat()" class="icon-btn"><i class="bi bi-chat-square-dots"></i></span>
+            <span class="icon-btn"><i class="bi bi-share"></i></span>
+            <span class="icon-btn"><i class="bi bi-sliders"></i></span>
+        </div>
+        <div id="user-stream-box">
+            <video id="userStream_feedback"></video>
+        </div>
+    </div>
+
+</div>
