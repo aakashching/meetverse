@@ -105,6 +105,7 @@ export class MeetingService {
         newVid.id = socket_id;
         // newVid.playsInline = false;
         newVid.autoplay = true;
+        newVid.controls=false
         newVid.className = "vid";
         newVid.style.width="100%"
                 newVid.onclick = () => newVid.requestFullscreen();
