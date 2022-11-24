@@ -39,9 +39,11 @@ export class MessageComponent implements OnInit {
 
       setTimeout(() => {
         // document.getElementById("divRef").scrollIntoView({ behavior: "smooth" })
-        this.divRef.scrollIntoView({ behavior: "smooth" })
+        let scrollElement = document.querySelectorAll(".txt-msg")
+        scrollElement[scrollElement.length-1].scrollIntoView({behavior:'smooth'})
+        // this.divRef.scrollIntoView({ behavior: "smooth" })
 
-      }, 100);
+      }, 10);
 
     } catch (error) {
       console.log(error);
