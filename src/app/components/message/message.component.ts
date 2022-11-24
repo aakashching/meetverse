@@ -27,7 +27,8 @@ export class MessageComponent implements OnInit {
     this.mySocketId = this.socketServie.getSocket().id
   }
 
-  onSend(msg: HTMLInputElement) {
+  onSend(msg: HTMLInputElement,) {
+   
     if (msg.value == '') return;
     this.message.push({ message: msg.value, socketId: this.mySocketId });
     this.msgService.sendMsg(msg.value);

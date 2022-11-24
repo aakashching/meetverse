@@ -26,17 +26,16 @@
     </h2>
   </div>
   <!-- <div > -->
-  <div class="input-box">
-    <input placeholder="Enter your message" type="text" #msg />
+  <form  class="input-box" (ngSubmit)="onSend(msg)">
+    <input autofocus placeholder="Enter your message" type="text" #msg />
     <button
       title="message-button"
-      (click)="onSend(msg)"
-      type="button"
+      type="submit"
       class="msg-btn"
     >
       <i class="bi bi-send-fill"></i>
     </button>
-  </div>
+  </form>
 
   <!-- </div> -->
 </div>

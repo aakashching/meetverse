@@ -1,20 +1,26 @@
-import { AfterViewInit, Component, OnInit, ViewChild,OnDestroy } from '@angular/core';
-import { from, Observable, Subscriber } from 'rxjs';
-import { AnimationItem } from 'lottie-web';
-import { AnimationOptions } from 'ngx-lottie';
-import { WeatherService } from 'src/app/services/weather.service';
-import { UserStreamService } from 'src/app/services/user-stream.service';
-import { ActivatedRoute } from '@angular/router';
-import { MeetingService } from 'src/app/services/meeting.service';
-import { AuthService } from 'src/app/services/auth.service';
+import {
+  AfterViewInit,
+  Component,
+  OnInit,
+  ViewChild,
+  OnDestroy,
+} from "@angular/core";
+import { from, Observable, Subscriber } from "rxjs";
+import { AnimationItem } from "lottie-web";
+import { AnimationOptions } from "ngx-lottie";
+import { WeatherService } from "src/app/services/weather.service";
+import { UserStreamService } from "src/app/services/user-stream.service";
+import { ActivatedRoute } from "@angular/router";
+import { MeetingService } from "src/app/services/meeting.service";
+import { AuthService } from "src/app/services/auth.service";
 @Component({
-  selector: 'app-preview',
-  templateUrl: './preview.component.html',
-  styleUrls: ['./preview.component.css'],
+  selector: "app-preview",
+  templateUrl: "./preview.component.html",
+  styleUrls: ["./preview.component.css"],
 })
-export class PreviewComponent implements OnInit, AfterViewInit,OnDestroy {
+export class PreviewComponent implements OnInit, AfterViewInit, OnDestroy {
   options: AnimationOptions = {
-    path: 'assets/01d.json',
+    path: "assets/01d.json",
   };
   stream: MediaStream;
   weatherData: any = {};
@@ -26,21 +32,21 @@ export class PreviewComponent implements OnInit, AfterViewInit,OnDestroy {
       enabled: true,
     },
   };
-  @ViewChild('video', { static: false }) vid: HTMLVideoElement;
-  nameModel:string='';
+  @ViewChild("video", { static: false }) vid: HTMLVideoElement;
+  nameModel: string = "";
   time = new Observable((sub) => {
     setInterval(() => {
       sub.next(Date.now());
     }, 1000);
   });
-  user:any=null;
+  user: any = null;
   // tslint:disable-next-line: max-line-length
   constructor(
     private route: ActivatedRoute,
     private weatherService: WeatherService,
     private userStream: UserStreamService,
     private meeting: MeetingService,
-    private auth:AuthService
+    private auth: AuthService
   ) {}
   ngAfterViewInit() {
     // tslint:disable-next-line: deprecation
@@ -48,7 +54,7 @@ export class PreviewComponent implements OnInit, AfterViewInit,OnDestroy {
       // this.stream=stream
       // if(stream)
       //    this.vid.srcObject = stream;
-      const user: any = document.getElementById('userStream');
+      const user: any = document.getElementById("userStream");
       user.srcObject = stream;
 
       console.log(stream);
@@ -59,14 +65,15 @@ export class PreviewComponent implements OnInit, AfterViewInit,OnDestroy {
         user.play();
       };
     });
-    console.log('view init');
-    this.nameModel=this.user.firstName+" "+this.user.lastName
+    console.log("view init");
+    if (this.user)
+      this.nameModel = `${this.user.firstName} ${this.user.lastName}`;
   }
 
   ngOnInit() {
     // tslint:disable-next-line: no-unused-expression
     this.route.snapshot.queryParams.meetid;
-this.user=this.auth.getUser()
+    this.user = this.auth.getUser();
     // weather by city name
     /*
     this.weatherService.getWeatherByCityName("Goa").subscribe((data)=>{
@@ -92,14 +99,14 @@ this.user=this.auth.getUser()
             path: `assets/${
               this.weatherData.weather[0].icon
                 ? this.weatherData.weather[0].icon
-                : 'assets/01d.json'
+                : "assets/01d.json"
             }.json`,
           };
           console.log(data);
         });
     });
   }
-  ngOnDestroy(){
+  ngOnDestroy() {
     // const user: any = document.getElementById('userStream');
     //   let tracks = user.srcObject.getTracks();
     //   tracks.forEach(track => track.stop());

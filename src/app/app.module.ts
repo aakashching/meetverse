@@ -13,7 +13,7 @@ import {HttpClientModule} from "@angular/common/http"
 import {LottieModule} from "ngx-lottie"
 import player from "lottie-web";
 import { MeetingComponent } from './pages/meeting/meeting.component'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, } from '@angular/forms';
 import { MessageComponent } from './components/message/message.component';
 import { StatusComponent } from './components/status/status.component';
 import { LoginModule } from './login/login.module';
