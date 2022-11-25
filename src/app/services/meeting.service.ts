@@ -96,7 +96,7 @@ export class MeetingService {
       });
     });
   
-    this.peers[socket_id].on("stream", (stream) => {
+    this.peers[socket_id].on("stream", (stream:MediaStream) => {
       // if (!this.streams[stream.id]) {
         console.log("Streaming new video");
         let videos = document.getElementById("videos")
@@ -109,6 +109,16 @@ export class MeetingService {
         newVid.className = "vid";
         newVid.style.width="100%"
                 newVid.onclick = () => newVid.requestFullscreen();
+                // newVid.onstalled=() => newVid.parentNode.removeChild(newVid)
+                // newVid.onpause=() => newVid.parentNode.removeChild(newVid);
+                //   newVid.onsuspend=() => newVid.parentNode.removeChild(newVid);
+                //   newVid.onerror=() => newVid.parentNode.removeChild(newVid);
+                //   newVid.onended=() => newVid.parentNode.removeChild(newVid);
+                //   newVid.onwaiting=() => newVid.parentNode.removeChild(newVid);
+                //   newVid.onratechange=() => newVid.parentNode.removeChild(newVid);
+
+                // when user clicks on stop button then track will be removed from the stream
+                stream.onremovetrack=() => newVid.parentNode.removeChild(newVid);
         // newVid.onclick = () => openPictureMode(newVid);
         // newVid.ontouchstart = (e) => openPictureMode(newVid);
         videos.appendChild(newVid);
@@ -138,14 +148,26 @@ export class MeetingService {
  shareMedia(){
    
   let media:any = navigator.mediaDevices;
-    media.getDisplayMedia({audio:true,video:true}).then(stream=>{
+    media.getDisplayMedia({audio:true,video:true}).then((stream:MediaStream)=>{
       this.displayStream=stream
+
+      
+      // adding the event listner whenever user clicks on the stop sharing buttion and removing the tracks from the stream using event callback 
+      stream.getVideoTracks()[0].addEventListener("ended",(event)=>{
+        for(let peer in this.peers){
+          this.peers[peer].removeTrack(this.displayStream.getVideoTracks()[0],this.displayStream);
+          this.peers[peer].removeTrack(this.displayStream.getAudioTracks()[0],this.displayStream);
+        }
+      })
       console.log(stream.getVideoTracks(),stream.getAudioTracks())
       for(let peer in this.peers){
         this.peers[peer].addTrack(stream.getVideoTracks()[0],stream);
         this.peers[peer].addTrack(stream.getAudioTracks()[0],stream);
       }
     })
+  }
+  stopMedia(){
+    
   }
 
 

@@ -46,7 +46,6 @@ export class UserStreamService {
 //@ts-ignore
       navigator.mediaDevices.getDisplayMedia({ video: true, audio: true }).then(stream => {
         this.screenStream = stream;
-
         sub.next(this.screenStream)
       })
 
