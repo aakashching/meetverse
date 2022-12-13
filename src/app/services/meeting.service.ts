@@ -3,7 +3,7 @@ import { SocketService } from './socket.service';
 import { UserStreamService } from './user-stream.service';
 import SimplePeer from "simple-peer/simplepeer.min"
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,6 +25,7 @@ export class MeetingService {
   private streams={}
   private socket=null;
   private meetId=null
+  private activeUser=new Subject<Array<string>>()
   constructor(private socketIo:SocketService,private userStream:UserStreamService,private router:Router) {
     this.socket=this.socketIo.getSocket()
     this.socket.on("invalidRoom", () => {
@@ -122,6 +123,7 @@ export class MeetingService {
         // newVid.onclick = () => openPictureMode(newVid);
         // newVid.ontouchstart = (e) => openPictureMode(newVid);
         videos.appendChild(newVid);
+        this.activeUser.next(Object.keys(this.peers));
         this.streams[stream.id] = stream;
       // }
     });
@@ -151,7 +153,7 @@ export class MeetingService {
     media.getDisplayMedia({audio:true,video:true}).then((stream:MediaStream)=>{
       this.displayStream=stream
 
-      
+
       // adding the event listner whenever user clicks on the stop sharing buttion and removing the tracks from the stream using event callback 
       stream.getVideoTracks()[0].addEventListener("ended",(event)=>{
         for(let peer in this.peers){
@@ -197,5 +199,9 @@ export class MeetingService {
   getMeetingId(){
     return this.meetId;
   }
+  getActiveUsers(){
   
+   return this.activeUser
+  }
+
 }

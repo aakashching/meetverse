@@ -20,7 +20,9 @@ export class MeetingComponent implements OnInit,AfterViewInit {
   };
   showChat:boolean=false
   // tslint:disable-next-line: max-line-length
-  constructor(private userStream: UserStreamService, private meeting: MeetingService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private userStream: UserStreamService, private meeting: MeetingService, private route: ActivatedRoute, private router: Router) {
+    this.meeting.getActiveUsers().subscribe(users=>console.log(users))
+   }
 
   ngOnInit() {
     if (!this.userStream.getLocalStream()) {
