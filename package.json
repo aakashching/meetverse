@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "server": "npx serve dist/meetverse",
+    "server": "lite-server --baseDir='ndist/project-name'",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
