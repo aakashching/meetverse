@@ -190,6 +190,7 @@ export class MeetingService {
     // videos.classList.remove("videos-container");
     // localVideo.classList.remove("vid-move");
     this.socket.off("disconnect");
+    this.socket.close()
     // this.socket.destroy();
     this.socket=null;
 
