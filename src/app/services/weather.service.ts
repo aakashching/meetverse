@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {apiKey,socketUrl} from "../env/env"
+import {socketUrl} from "../env/env"
 @Injectable({
   providedIn: 'root'
 })
