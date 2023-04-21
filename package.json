@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "server": "lite-server --baseDir=\"dist/meetverse\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -30,7 +31,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.800.0",
-    "@angular/cli": "~8.0.0",
+    "@angular/cli": "^8.3.29",
     "@angular/compiler-cli": "~8.0.0",
     "@angular/language-service": "~8.0.0",
     "@types/jasmine": "~3.3.8",
@@ -44,6 +45,7 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
+    "lite-server": "^2.6.1",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
