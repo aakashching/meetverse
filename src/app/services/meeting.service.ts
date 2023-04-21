@@ -191,8 +191,8 @@ export class MeetingService {
     // localVideo.classList.remove("vid-move");
     this.socket.off("disconnect");
     this.socket.close()
-    // this.socket.destroy();
-    this.socket=null;
+    this.socket.reconnect();
+    // this.socket=null;
 
     this.userStream.closeMediaStream()
     this.router.navigate(["/"])

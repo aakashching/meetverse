@@ -8,6 +8,9 @@ import {socketUrl} from "../env/env"
 export class SocketService {
 private socket=null
   constructor() { 
+    this.connect()
+  }
+  connect(){
     this.socket=io(socketUrl)
     // this.socket=io("http://localhost:3000")
     this.socket.on("connect", () => {
@@ -17,9 +20,11 @@ private socket=null
     console.log("Socket service",this.socket)
   }
   getSocket(){
+    if(this.socket)
     return this.socket;
   }
-  destroy(){
+  reconnect(){
     this.socket=null;
+    this.connect()
   }
 }
