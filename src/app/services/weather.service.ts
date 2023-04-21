@@ -10,12 +10,12 @@ export class WeatherService {
   constructor(private http:HttpClient) { }
   getWeatherByCityName(city:string){
     let jsonData;
-   let reqUri= `${socketUrl}?q=${city}`
+   let reqUri= `${socketUrl}/api/weather?q=${city}`
     
     return this.http.get(reqUri)
   }
   getWeatherByLatitude(lat:number,lon:number){
-    let reqUri = `${socketUrl}?lat=${lat}&lon=${lon}`
+    let reqUri = `${socketUrl}/api/weather?lat=${lat}&lon=${lon}`
     return this.http.get(reqUri)
   }
 }
